@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Discover delicious Nigerian favorites and international recipes with Tasty Kitchen."
+    />
+
+    <title>Tasty Kitchen | Discover Delicious Recipes</title>
+
+    <link rel="stylesheet" href="food.css" />
+    <script src="food.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="site-header" id="home">
+      <a href="#home" class="logo" aria-label="Tasty Kitchen home">
+        <span class="logo-icon">🍲</span>
+        <span>Tasty<span class="logo-accent">Kitchen</span></span>
+      </a>
+
+      <button
+        id="theme-btn"
+        class="theme-btn"
+        type="button"
+        aria-label="Switch to dark mode"
+      >
+        🌙 Dark Mode
+      </button>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <p id="welcome" class="welcome-message" aria-live="polite"></p>
+    </nav>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">GOOD FOOD, GOOD MOOD</span>
+
+          <h1>
+            Discover the joy of
+            <span>home cooking.</span>
+          </h1>
+
+          <p>
+            Delicious recipes, simple ingredients, and inspiration to make every
+            meal special.
+          </p>
+
+          <a href="#recipes" class="primary-btn">
+            Explore Recipes <span aria-hidden="true">→</span>
+          </a>
+
+          <div class="hero-note">
+            <span aria-hidden="true">🥘</span>
+            <span>Made for food lovers, by food lovers.</span>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+            alt="A colorful bowl of freshly prepared food"
+          />
+
+          <div class="image-badge">
+            <span aria-hidden="true">❤️</span>
+            <span>Made with love</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recipe Collection -->
+      <section class="recipes-section" id="recipes">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR NEXT FAVORITE MEAL</span>
+            <h2>Explore our recipes</h2>
+            <p>Find something delicious to cook today.</p>
+          </div>
+
+          <button
+            id="favorites-filter"
+            class="secondary-btn"
+            type="button"
+            aria-pressed="false"
+          >
+            ♡ My Favorites <span id="favorite-count">0</span>
+          </button>
+        </div>
+
+        <!-- Search -->
+        <form id="search-form" class="search-form" role="search">
+          <label class="search-box">
+            <span aria-hidden="true">🔎</span>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search recipes or ingredients..."
+              aria-label="Search recipes by name or ingredient"
+              autocomplete="off"
+            />
+          </label>
+
+          <button class="primary-btn search-btn" type="submit">Search</button>
+
+          <button id="clear-search" class="secondary-btn" type="button">
+            Clear
+          </button>
+        </form>
+
+        <p id="results-count" class="results-count" aria-live="polite"></p>
+
+        <!-- JavaScript creates the recipe cards here -->
+        <div id="recipe-container" class="recipe-container"></div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <span aria-hidden="true">🍽️</span>
+          <h3>No recipes found</h3>
+          <p>Try another search or explore all our recipes.</p>
+          <button id="reset-recipes" class="primary-btn" type="button">
+            Show All Recipes
+          </button>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about-section" id="about">
+        <div class="about-icon" aria-hidden="true">🥗</div>
+
+        <div>
+          <span class="eyebrow">OUR KITCHEN, YOUR HOME</span>
+          <h2>Good food brings us together.</h2>
+
+          <p>
+            At Tasty Kitchen, we believe that great meals start with simple
+            ingredients and a little inspiration. Discover Nigerian classics and
+            international favorites, with recipes that make cooking enjoyable.
+          </p>
+
+          <a href="#recipes" class="text-link"> Find your next recipe → </a>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact-section" id="contact">
+        <span class="eyebrow">LET'S CONNECT</span>
+        <h2>From our kitchen to yours.</h2>
+
+        <p>Have a recipe idea or a question? We'd love to hear from you.</p>
+
+        <a
+          class="primary-btn"
+          href="https://wa.me/2349043314910"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Chat with us on WhatsApp
+        </a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a href="#home" class="footer-logo">🍲 Tasty Kitchen</a>
+
+      <p>Good food. Simple recipes. Happy moments.</p>
+
+      <p>
+        &copy; <span id="current-year">2026</span>
+        Tasty Kitchen. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Back to Top -->
+    <button
+      id="topBtn"
+      class="top-btn"
+      type="button"
+      aria-label="Back to top"
+      title="Back to top"
+    >
+      ↑
+    </button>
+
+    <!-- Recipe Details Dialog -->
+    <dialog id="recipe-dialog" class="recipe-dialog">
+      <div class="dialog-header">
+        <span class="eyebrow">LET'S GET COOKING</span>
+
+        <button
+          id="close-dialog"
+          class="close-dialog"
+          type="button"
+          aria-label="Close recipe details"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div id="recipe-details"></div>
+    </dialog>
+  </body>
+</html>
